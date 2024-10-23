@@ -12,7 +12,7 @@ document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   if (!guess) {
     // document.querySelector('.message').textContent = '⛔ No Content';
-    displayMessage('⛔ No Content');
+    displayMessage('⛔ No Number');
   } else if (guess === secretNumber) {
     // document.querySelector('.message').textContent = '🎉🎉 Correct Number!!';
     displayMessage('🎉 Correct Number!');
@@ -34,6 +34,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       // document.querySelector('.message').textContent = 'You Lost the game';
       displayMessage('You Lost the game');
+      document.querySelector('body').style.backgroundColor = '#ff6347';
       document.querySelector('.score').textContent = 0;
     }
   }
@@ -42,7 +43,6 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-
   document.querySelector('.message').textContent = 'Start Guessing...';
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
